@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s12:Envelope 
+    xmlns:s12="http://www.w3.org/2003/05/soap-envelope" 
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" 
+    xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing" 
+    xmlns:ew="http://www.example.com/warnings">
+    <s12:Header>
+        <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/eventing/Subscribe</wsa:Action>
+        <wsa:MessageID>uuid:P37f46a46-4b03-4b16-9380-413c0f52d348</wsa:MessageID>
+        <wsa:ReplyTo>
+            <wsa:Address>http://192.168.0.190:5015/dpws/test</wsa:Address>
+        </wsa:ReplyTo>
+        <wsa:To>http://192.168.0.190:8080/TemperatureService</wsa:To>
+    </s12:Header>
+    <s12:Body>
+        <wse:Subscribe>
+            <wse:Delivery Mode="http://schemas.xmlsoap.org/ws/2004/08/eventing/DeliveryModes/Push"?>
+                <wse:NotifyTo>
+                    <wsa:Address>http://192.168.0.190:5015/dpws/test</wsa:Address>
+                </wse:NotifyTo>
+            </wse:Delivery>
+            <wse:Filter>http://192.168.0.190:8080/TemperatureService</wse:Filter>
+        </wse:Subscribe>
+    </s12:Body>
+</s12:Envelope>
+

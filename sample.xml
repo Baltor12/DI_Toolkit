@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s12:Envelope 
+    xmlns:dpws="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01" 
+    xmlns:s12="http://www.w3.org/2003/05/soap-envelope" 
+    xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <s12:Header>
+        <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/mex/GetMetadata/Request</wsa:Action>
+        <wsa:MessageID></wsa:MessageID>
+        <wsa:To>http://192.168.0.190:8080/</wsa:To>
+    </s12:Header>
+    <s12:Body/>
+</s12:Envelope>

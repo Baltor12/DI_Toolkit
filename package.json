@@ -1,0 +1,33 @@
+{
+  "name": "Discoverer",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "Balaji Gopalakrishnan",
+  "description": "a simple web server that discovers devices in a network and maps them to HTTP requests with JSON message format",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "async": "^2.1.4",
+    "body-parser": "^1.16.0",
+    "dgram": "^1.0.1",
+    "dpws": "0.0.3",
+    "express": "^4.14.0",
+    "express-xml-bodyparser": "^0.3.0",
+    "eyes": "^0.1.8",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.4",
+    "my-local-ip": "^1.0.0",
+    "node-uuid": "^1.4.8",
+    "object-to-xml": "^1.1.0",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "peer-ssdp": "0.0.5",
+    "request": "^2.81.0",
+    "requestify": "^0.2.5",
+    "xml": "^1.0.1",
+    "xml2js": "^0.4.17",
+    "xml2json": "^0.11.0"
+  }
+}

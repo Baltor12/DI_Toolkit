@@ -1,0 +1,49 @@
+<s12:Envelope 
+  xmlns:s12="http://www.w3.org/2003/05/soap-envelope" 
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" 
+  xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing" 
+  xmlns:ew="http://www.example.com/warnings">
+  <s12:Header>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/eventing/Subscribe</wsa:Action>
+    <wsa:MessageID>uuid:d7c5726b-de29-4313-b4d4-b3425b200839</wsa:MessageID>
+    <wsa:ReplyTo>
+      <wsa:Address>http://192.168.0.196:55556/dpws/TemperatureEvent</wsa:Address>
+    </wsa:ReplyTo>
+    <wsa:To>http://192.168.0.196:8080/TemperatureService</wsa:To>
+  </s12:Header>
+  <s12:Body>
+    <wse:Subscribe>
+      <wse:Filter>http://192.168.0.196:8080/TemperatureService/sim:SimpleService/TemperatureEvent</wse:Filter>
+      <wse:Delivery Mode="http://schemas.xmlsoap.org/ws/2004/08/eventing/DeliveryModes/Push">
+        <wse:NotifyTo>
+          <wsa:Address>http://192.168.0.196:55556/dpws/TemperatureEvent/sample</wsa:Address>
+        </wse:NotifyTo>
+      </wse:Delivery>
+    </wse:Subscribe>
+  </s12:Body>
+</s12:Envelope>
+<?xml version="1.0" encoding="UTF-8"?>
+<s12:Envelope 
+  xmlns:s12="http://www.w3.org/2003/05/soap-envelope" 
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" 
+  xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing" 
+  xmlns:ew="http://www.example.com/warnings">
+  <s12:Header>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/eventing/Subscribe</wsa:Action>
+    <wsa:MessageID>uuid:b5dc0680-750a-43d6-b79c-532ef0daeea5</wsa:MessageID>
+    <wsa:ReplyTo>
+      <wsa:Address>http://192.168.0.196:8080/TemperatureService/sim:SimpleService/TemperatureEvent</wsa:Address>
+    </wsa:ReplyTo>
+    <wsa:To>http://192.168.0.196:8080/TemperatureService</wsa:To>
+  </s12:Header>
+  <s12:Body>
+    <wse:Subscribe>
+      <wse:Filter>http://192.168.0.196:55556/dpws/Weather_Station/TemperatureEvent/eventSink</wse:Filter>
+      <wse:Delivery Mode="http://schemas.xmlsoap.org/ws/2004/08/eventing/DeliveryModes/Push">
+        <wse:NotifyTo>
+          <wsa:Address>http://192.168.0.196:8080/TemperatureService/sim:SimpleService/TemperatureEvent</wsa:Address>
+          <wse:NotifyTo>
+          </wse:Delivery>
+        </wse:Subscribe>
+      </s12:Body>
+    </s12:Envelope>

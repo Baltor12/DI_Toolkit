@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s12:Envelope 
+  xmlns:dpws="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01" 
+  xmlns:s12="http://www.w3.org/2003/05/soap-envelope" 
+  xmlns:wsa="http://www.w3.org/2005/08/addressing" 
+  xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+  <s12:Header>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/transfer/GetResponse</wsa:Action>
+    <wsa:RelatesTo>uuid:P37f46a46-4b03-4b16-9380-413c0f52d348</wsa:RelatesTo>
+    <wsa:To>http://www.w3.org/2005/08/addressing/anonymous</wsa:To>
+  </s12:Header>
+  <s12:Body>
+    <wsx:Metadata>
+      <wsx:MetadataSection Dialect="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01/ThisModel">
+        <dpws:ThisModel>
+          <dpws:Manufacturer xml:lang="en-US">Siemens</dpws:Manufacturer>
+          <dpws:ModelName xml:lang="en-US">TempPoint</dpws:ModelName>
+          <dpws:ModelNumber>ARL1028</dpws:ModelNumber>
+          <dpws:ModelUrl>http://example.com/_MODEL_URL</dpws:ModelUrl>
+          <dpws:PresentationUrl>http://example.com/_PRESENTATION_URL</dpws:PresentationUrl>
+        </dpws:ThisModel>
+      </wsx:MetadataSection>
+      <wsx:MetadataSection Dialect="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01/ThisDevice">
+        <dpws:ThisDevice>
+          <dpws:FriendlyName xml:lang="en-US">Weather_Station</dpws:FriendlyName>
+          <dpws:FirmwareVersion>0.0.1</dpws:FirmwareVersion>
+          <dpws:SerialNumber>12345</dpws:SerialNumber>
+        </dpws:ThisDevice>
+      </wsx:MetadataSection>
+      <wsx:MetadataSection Dialect="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01/Relationship">
+        <dpws:Relationship Type="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01/host">
+          <dpws:Host>
+            <wsa:EndpointReference>
+              <wsa:Address>f7ef0fab-ba1d-4275-9a94-0f051090640f</wsa:Address>
+            </wsa:EndpointReference>
+            <dpws:Types>sim:SimpleService</dpws:Types>
+          </dpws:Host>
+          <dpws:Hosted>
+            <wsa:EndpointReference>
+              <wsa:Address>http://192.168.0.189:8080/TemperatureService</wsa:Address>
+            </wsa:EndpointReference>
+            <dpws:Types>sim:SimpleService</dpws:Types>
+            <dpws:ServiceId>TemperatureService</dpws:ServiceId>
+          </dpws:Hosted>
+        </dpws:Relationship>
+      </wsx:MetadataSection>
+    </wsx:Metadata>
+  </s12:Body>
+</s12:Envelope>
+
+
+

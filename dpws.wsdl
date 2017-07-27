@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s12:Envelope 
+  xmlns:dpws="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01" 
+  xmlns:s12="http://www.w3.org/2003/05/soap-envelope" 
+  xmlns:wsa="http://www.w3.org/2005/08/addressing" 
+  xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+  <s12:Header>
+    <wsa:Action>http://schemas.xmlsoap.org/ws/2004/09/mex/GetMetadata/Response</wsa:Action>
+    <wsa:RelatesTo>urn:uuid:bcd5900f-e0c6-4d4c-aaa2-f157a669af49</wsa:RelatesTo> 
+    <wsa:To>http://www.w3.org/2005/08/addressing/anonymous</wsa:To>
+  </s12:Header>
+  <s12:Body>
+    <wsx:Metadata>
+      <wsx:MetadataSection Dialect="http://schemas.xmlsoap.org/wsdl/">
+        <wsdl:definitions 
+          xmlns:tns="http://192.168.0.189:8080/TemperatureService" 
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+          xmlns:dpws="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01" 
+          xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+          xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+          xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="http://192.168.0.189:8080/TemperatureService">
+          <wsdl:types>
+            <xs:schema 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://192.168.0.189:8080/TemperatureService" elementFormDefault="qualified" attributeFormDefault="unqualified">
+              <xs:element name="temperature" type="xs:int"/>
+              <xs:element name="complex" type="tns:complexType"/>
+              <xs:complexType name="complexType">
+                <xs:all>
+                  <xs:element name="arg1" type="xs:int"/>
+                  <xs:element name="arg2" type="xs:string"/>
+                </xs:all>
+              </xs:complexType>
+            </xs:schema>
+          </wsdl:types>
+          <wsdl:message name="GetStatusMessage"/>
+          <wsdl:message name="GetStatusResponseMessage">
+            <wsdl:part name="parameters" element="tns:temperature"/>
+          </wsdl:message>
+          <wsdl:message name="SetTemperatureMessage">
+            <wsdl:part name="parameters" element="tns:temperature"/>
+          </wsdl:message>
+          <wsdl:message name="SetTemperatureResponseMessage"/>
+          <wsdl:message name="TemperatureEventMessage"/>
+          <wsdl:message name="TemperatureEventResponseMessage">
+            <wsdl:part name="parameters" element="tns:temperature"/>
+          </wsdl:message>
+          <wsdl:portType name="sim:SimpleService" 
+            xmlns:n2="http://schemas.xmlsoap.org/ws/2004/08/eventing" n2:EventSource="true">
+            <wsdl:operation name="GetStatus">
+              <wsdl:input name="GetStatus" message="tns:GetStatusMessage" wsam:Action="http://192.168.0.189:8080/TemperatureService/GetStatus"/>
+              <wsdl:output name="GetStatusResponse" message="tns:GetStatusResponseMessage" wsam:Action="http://192.168.0.189:8080/TemperatureService/GetStatusResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="SetTemperature">
+              <wsdl:input name="SetTemperature" message="tns:SetTemperatureMessage" wsam:Action="http://192.168.0.189:8080/TemperatureService/SetTemperature"/>
+              <wsdl:output name="SetTemperatureResponse" message="tns:SetTemperatureResponseMessage" wsam:Action="http://192.168.0.189:8080/TemperatureService/SetTemperatureResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="TemperatureEvent">
+              <wsdl:output name="TemperatureEventResponse" message="tns:TemperatureEventResponseMessage" wsam:Action="http://192.168.0.189:8080/TemperatureService/TemperatureEventResponse"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:binding name="TemperatureServiceBinding" type="tns:AC_serviceInterface">
+            <wsoap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+            <wsdl:operation name="GetStatus">
+              <wsoap12:operation/>
+              <wsdl:input>
+                <wsoap12:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output>
+                <wsoap12:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="SetTemperature">
+              <wsoap12:operation/>
+              <wsdl:input>
+                <wsoap12:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output>
+                <wsoap12:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="TemperatureEvent">
+              <wsoap12:operation/>
+              <wsdl:output>
+                <wsoap12:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:service name="TemperatureService">
+              <wsdl:port name="TemperatureService" binding="tns:TemperatureServiceBinding">
+                <wsoap12:address location="http://192.168.0.189:8080/TemperatureService"/>
+              </wsdl:port>
+            </wsdl:service>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </wsx:MetadataSection>
+      <wsx:MetadataSection Dialect="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01/Relationship">
+        <dpws:Relationship Type="http://docs.oasis-open.org/ws-dd/ns/dpws/2009/01/host">
+          <dpws:Host>
+            <wsa:EndpointReference>
+              <wsa:Address>f7ef0fab-ba1d-4275-9a94-0f051090640f</wsa:Address>
+            </wsa:EndpointReference>
+            <dpws:Types>sim:SimpleService</dpws:Types>
+          </dpws:Host>
+          <dpws:Hosted>
+            <wsa:EndpointReference>
+              <wsa:Address>http://192.168.0.189:8080/TemperatureService</wsa:Address>
+            </wsa:EndpointReference>
+            <dpws:Types>sim:SimpleService</dpws:Types>
+            <dpws:ServiceId>TemperatureService</dpws:ServiceId>
+          </dpws:Hosted>
+        </dpws:Relationship>
+      </wsx:MetadataSection>
+    </wsx:Metadata>
+  </s12:Body>
+</s12:Envelope>
